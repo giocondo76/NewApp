@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:include="layout :: page">
+<body>
+<div th:fragment="content">
+
+    <div class="starter-template">
+        <h1>See 5 latest condition in  room</h1>
+    </div>
+
+    <!--<div class="change-form">-->
+    <!--<form action="#" th:action="#" th:object="#" method="post">-->
+    <!--<p>Change tempreture : <input type="text" /></p>-->
+    <!--<p>Change humidity: <input type="text"/></p>-->
+    <!--<p>Change co2: <input type="text"/></p>&ndash;&gt;-->
+    <!--<p>Save change<input type="submit" value="Submit" /></p>-->
+    <!--</form>-->
+    <!--</div>-->
+
+    <div class="list-conditions">
+        <table>
+            <tr>
+                <th>Temp</th>
+                <th>Hum</th>
+                <th>CO2</th>
+            </tr>
+            <tr th:each="condition : *{conditions}">
+                <td th:text="*{condition.temp}"></td>
+                <td th:text="*{condition.hum}"></td>
+                <td th:text="*{condition.co2}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
