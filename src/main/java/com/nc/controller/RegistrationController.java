@@ -1,10 +1,9 @@
 package com.nc.controller;
 
-import com.nc.controller.valid.UserRegistrationForm;
+import com.nc.valid.UserDto;
 import com.nc.entity.User;
 import com.nc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,13 +21,13 @@ public class RegistrationController {
 
     @GetMapping("/registration")
     public String registration(Model model) {
-        model.addAttribute("user", new UserRegistrationForm());
+        model.addAttribute("user", new UserDto());
         return "registration";
     }
 
     @PostMapping("/registration")
     public String registration(
-            @Valid @ModelAttribute("userForm") UserRegistrationForm userRegistrationForm,
+            @Valid @ModelAttribute("userForm") UserDto userDto,
             BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
@@ -36,8 +35,9 @@ public class RegistrationController {
         }
 
         User user = new User();
-        user.setUsername(userRegistrationForm.getUsername());
-        user.setPassword(userRegistrationForm.getPassword());
+        user.setUsername(userDto.getUsername());
+        user.setEmail(userDto.getEmail());
+        user.setPassword(userDto.getPassword());
 
         userService.signupUser(user);
 

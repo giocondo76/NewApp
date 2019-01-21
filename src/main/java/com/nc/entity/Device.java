@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Device {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "dev_id")
     private Integer id;
 
@@ -31,6 +31,7 @@ public class Device {
 
     public Device() {
     }
+
 
     public Integer getId() {
         return id;
@@ -64,13 +65,4 @@ public class Device {
         this.location = location;
     }
 
-    @Override
-    public String toString() {
-        return "Device{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", devType=" + devType +
-                ", location=" + location +
-                '}';
-    }
 }

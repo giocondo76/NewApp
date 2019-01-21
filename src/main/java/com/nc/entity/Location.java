@@ -8,7 +8,7 @@ import java.util.List;
 public class Location {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "loc_id")
     private Integer id;
 
@@ -23,6 +23,7 @@ public class Location {
             mappedBy = "location")
     private List<Condition> conditions;
 
+
     @ManyToOne
     @JoinColumn(name = "type")
     private LocType locType;
@@ -30,6 +31,24 @@ public class Location {
     @ManyToOne
     @JoinColumn(name = "standart")
     private Standart standart;
+
+    @ManyToOne
+    @JoinColumn(name = "room_manager")
+    private User user;
+
+    public Location(Integer id, String name, List<Device> devices, List<Condition> conditions,
+                    List<User> users, LocType locType, Standart standart, User user) {
+        this.id = id;
+        this.name = name;
+        this.devices = devices;
+        this.conditions = conditions;
+        this.locType = locType;
+        this.standart = standart;
+        this.user = user;
+    }
+
+    public Location() {
+    }
 
     public Integer getId() {
         return id;
@@ -47,15 +66,6 @@ public class Location {
         this.name = name;
     }
 
-    public Location() {
-    }
-
-    public Location(Integer id, String name, LocType locType, Standart standart) {
-        this.id = id;
-        this.name = name;
-        this.locType = locType;
-        this.standart = standart;
-    }
 
     public LocType getLocType() {
         return locType;
@@ -71,6 +81,30 @@ public class Location {
 
     public void setStandart(Standart standart) {
         this.standart = standart;
+    }
+
+    public List<Device> getDevices() {
+        return devices;
+    }
+
+    public void setDevices(List<Device> devices) {
+        this.devices = devices;
+    }
+
+    public List<Condition> getConditions() {
+        return conditions;
+    }
+
+    public void setConditions(List<Condition> conditions) {
+        this.conditions = conditions;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
 

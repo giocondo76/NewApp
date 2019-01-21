@@ -20,7 +20,15 @@ public class DevType {
             mappedBy = "devType")
     private List<Device> devices;
 
+    public DevType() {
+    }
 
+
+    public DevType(Integer id, String name, List<Device> devices) {
+        this.id = id;
+        this.name = name;
+        this.devices = devices;
+    }
 
     public Integer getId() {
         return id;
@@ -46,13 +54,4 @@ public class DevType {
         this.devices = devices;
     }
 
-
-    @Override
-    public String toString() {
-        return "DevType{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", devices=" + devices +
-                '}';
-    }
 }

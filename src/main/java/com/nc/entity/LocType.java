@@ -19,6 +19,15 @@ public class LocType {
             mappedBy = "locType")
     private List<Location> locations;
 
+    public LocType() {
+    }
+
+    public LocType(Integer id, String name, List<Location> locations) {
+        this.id = id;
+        this.name = name;
+        this.locations = locations;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -35,11 +44,4 @@ public class LocType {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "LocationType{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
 }

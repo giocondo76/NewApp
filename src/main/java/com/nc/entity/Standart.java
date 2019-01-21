@@ -14,7 +14,7 @@ public class Standart {
 
 
     @Column(name = "name")
-    private String standart_name;
+    private String name;
 
 
     @Column(name = "temp_min")
@@ -40,6 +40,20 @@ public class Standart {
             mappedBy = "standart")
     private List<Location> locations;
 
+    public Standart() {
+    }
+
+    public Standart(Integer id, String name, Integer temp_min, Integer temp_max, Integer hum_max, Integer co2_min, Integer co2_max, List<Location> locations) {
+        this.id = id;
+        this.name = name;
+        this.temp_min = temp_min;
+        this.temp_max = temp_max;
+        this.hum_max = hum_max;
+        this.co2_min = co2_min;
+        this.co2_max = co2_max;
+        this.locations = locations;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -48,12 +62,12 @@ public class Standart {
         this.id = id;
     }
 
-    public String getStandart_name() {
-        return standart_name;
+    public String getName() {
+        return name;
     }
 
-    public void setStandart_name(String standart_name) {
-        this.standart_name = standart_name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getTemp_min() {
@@ -96,16 +110,11 @@ public class Standart {
         this.co2_max = co2_max;
     }
 
-    public Standart() {
+    public List<Location> getLocations() {
+        return locations;
     }
 
-    public Standart(Integer id, String standart_name, Integer temp_min, Integer temp_max, Integer hum_max, Integer co2_min, Integer co2_max) {
-        this.id = id;
-        this.standart_name = standart_name;
-        this.temp_min = temp_min;
-        this.temp_max = temp_max;
-        this.hum_max = hum_max;
-        this.co2_min = co2_min;
-        this.co2_max = co2_max;
+    public void setLocations(List<Location> locations) {
+        this.locations = locations;
     }
 }

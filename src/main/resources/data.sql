@@ -17,14 +17,21 @@ INSERT INTO standart(
 	VALUES (1, 'warm', 18, 28, 65, 600, 1000),
 	(2, 'cold', 18, 24, 60, 800, 1000);
 
+INSERT INTO role (id, name , authority) VALUES
+  (1, 'Users', 'ROLE_USER'),
+  (2, 'Admin', 'ROLE_ADMIN');
+INSERT INTO usr (id, name,email, password) VALUES
+  (1, 'admin','a@a.ru','$2a$10$AIUufK8g6EFhBcumRRV2L.AQNz3Bjp7oDQVFiO5JJMBFZQ6x2/R/2');
+
+INSERT INTO role_usr (usr_id, role_id) VALUES
+  (1, 1),
+  (1, 2);
 
 INSERT INTO location(
-	loc_id, name, type, standart)
-	VALUES (1, 'secret room', 3, 2),
-		(2, 'dinner room', 1, 2),
-		(3, 'work space', 2, 2);
-
-
+	loc_id, name, type, standart, room_manager)
+	VALUES (1, 'secret room', 3, 2, 1),
+		(2, 'dinner room', 1, 2 , 1),
+		(3, 'work space', 2, 2 , 1);
 INSERT INTO device(
 	dev_id, name, type, location)
 	VALUES (1, 'device 1', 1, 1),
@@ -36,7 +43,6 @@ INSERT INTO device(
 		(7, 'device 7', 1, 3),
  		(8, 'device 8', 2, 3),
 		(9, 'device 9', 3, 3);
-
 
 INSERT INTO condition(
 	cond_id, datetime, location, temp, hum, carb_diox)
@@ -56,12 +62,3 @@ INSERT INTO condition(
 		(14,'2014-04-04 20:15:00', 3, 23, 50, 757),
 		(15,'2014-04-04 20:20:00', 3, 25, 57, 743);
 
-INSERT INTO ROLE (ID, NAME , AUTHORITY) VALUES
-  (1, 'Users', 'ROLE_USER'),
-  (2, 'Administrators', 'ROLE_ADMIN');
-INSERT INTO USER (ID, USERNAME, PASSWORD) VALUES
-  (1, 'admin', '$2a$10$9eOIaFtzFIHJ69WslgrjieXUyPQz6F6T6SEp5vR0ZdkUHhw0mFoHK');
-
-INSERT INTO ROLE_USER (USER_ID, ROLE_ID) VALUES
-  (1, 1),
-  (1, 2);

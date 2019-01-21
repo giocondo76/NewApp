@@ -28,6 +28,18 @@ public class Condition {
     @Column(name = "carb_diox")
     private Integer co2;
 
+    public Condition(Integer id, Timestamp timestamp, Location location, Integer temp, Integer hum, Integer co2) {
+        this.id = id;
+        this.timestamp = timestamp;
+        this.location = location;
+        this.temp = temp;
+        this.hum = hum;
+        this.co2 = co2;
+    }
+
+    public Condition() {
+    }
+
     public Integer getId() {
         return id;
     }
@@ -76,15 +88,4 @@ public class Condition {
         this.location = location;
     }
 
-    public Condition() {
-    }
-
-    public Condition(Integer id, Timestamp timestamp, Location location, Integer temp, Integer hum, Integer co2) {
-        this.id = id;
-        this.timestamp = timestamp;
-        this.location = location;
-        this.temp = temp;
-        this.hum = hum;
-        this.co2 = co2;
-    }
 }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:include="layout :: page">
+<body>
+<div th:fragment="content">
+    <div class="page-header">
+        <h3>Add new device</h3>
+    </div>
+    <form th:action="@{/adddevice}" th:object="${device}" method="POST">
+        <input type="hidden" th:field="*{id}" />
+
+        <div class="form-group">
+            <label for="text">Device</label>
+            <textarea class="form-control" id="text" th:field="*{name}" ></textarea>
+            <ul>
+                <li th:each="err : ${#fields.errors('name')}" th:text="${err}"></li>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label for="type">Device type</label>
+            <select id="type" class="form-control" th:field="*{devType.id}">
+                <option th:each="devType : ${devTypes}"
+                        th:value="${devType.id}"
+                        th:text="${devType.name}"></option>
+            </select>
+            <ul>
+                <li th:each="err : ${#fields.errors('devType.id')}" th:text="${err}"></li>
+            </ul>
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location</label>
+            <select id="location" class="form-control" th:field="*{location.id}">
+                <option th:each="location : ${locations}"
+                        th:value="${location.id}"
+                        th:text="${location.name}"></option>
+            </select>
+            <ul>
+                <li th:each="err : ${#fields.errors('location.id')}" th:text="${err}"></li>
+            </ul>
+        </div>
+        <button type="submit" class="btn btn-default">Save</button>
+    </form>
+</div>
+</body>
+</html>

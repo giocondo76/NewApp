@@ -1,9 +1,14 @@
 package com.nc.controller;
 
-import com.nc.controller.form.LocationDto;
+
+import com.nc.entity.Device;
 import com.nc.entity.Location;
+import com.nc.entity.User;
 import com.nc.repository.*;
+import com.nc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -12,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.core.convert.ConversionService;
 
 import javax.validation.Valid;
+import java.security.Principal;
+import java.util.Map;
 
 @Controller
 public class LocationController {
@@ -28,30 +35,30 @@ public class LocationController {
      @Autowired
      private LocTypeRepository locTypeRepository;
 
+     @Autowired
+    private UserService userService;
+
+
     @GetMapping("/addlocation")
     public String add(ModelMap model) {
 
-        model.addAttribute("location", new LocationDto());
-        model.addAttribute("Types", locTypeRepository.findAll());
-        model.addAttribute("Standarts", standartRepository.findAll());
+        model.addAttribute("location", new Location());
+        model.addAttribute("locTypes", locTypeRepository.findAll());
+        model.addAttribute("standarts", standartRepository.findAll());
         return "addlocation";
     }
 
     @PostMapping("/addlocation")
-    public String add(@Valid @ModelAttribute("location") LocationDto locationDto,
-                      BindingResult result, ModelMap model) {
+    public String add(@Valid Location location, BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
-
-            model.addAttribute("types", locTypeRepository.findAll());
+            model.addAttribute("locTypes", locTypeRepository.findAll());
             model.addAttribute("standarts", standartRepository.findAll());
             return "addlocation";
         }
-
-        Location location = conversionService.convert(locationDto, Location.class);
-
+        location.setUser(userService.getCurrentUser());
         locationRepository.save(location);
 
-        return "/location";
+        return "redirect:/index";
     }
 
 

@@ -11,4 +11,6 @@ public interface UserService extends UserDetailsService {
     User getCurrentUser();
 
     boolean hasRole(String role);
+
+    void updateProfile(User user, String username, String email);
 }

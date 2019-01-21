@@ -5,23 +5,26 @@ import org.springframework.security.core.GrantedAuthority;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "role")
 public class Role implements GrantedAuthority {
 
     @Id
     @SequenceGenerator(name = "role_id_sequence_gen",
             sequenceName="role_id_sequence", initialValue = 10)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "role_id_sequence_gen")
-    private Long id;
+    private Integer id;
+
+    @Column(name="name")
     private String name;
 
     @Column(unique = true)
     private String authority;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -42,8 +45,4 @@ public class Role implements GrantedAuthority {
         this.authority = authority;
     }
 
-    @Override
-    public String toString() {
-        return name;
-    }
 }

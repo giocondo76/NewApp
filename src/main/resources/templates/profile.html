@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:include="layout :: page">
+<body>
+<div th:fragment="content">
+    <div  class="page-header">
+        <h2 class="text-center">Profile</h2>
+    </div>
+    <form th:action="@{/profile}" method="post" class="form-sign" th:object="${user}">
+        <div class="form-group">
+            <label class="control-label" for="username">User Name</label>
+            <input type="text" th:name="${username}" class="form-control" id="username" th:field="*{username}" placeholder="Username" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="email">Email</label>
+            <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="email" />
+        </div>
+        <button type="submit" class="btn btn-default">Save</button>
+    </form>
+</div>
+</body>
+</html>>

@@ -18,6 +18,7 @@ public class ConditionController {
     @Autowired
     private ConditionRepository conditionRepository;
 
+
     private Location location;
 
 //    @Autowired
