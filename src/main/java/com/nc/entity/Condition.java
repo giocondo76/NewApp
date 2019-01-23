@@ -40,6 +40,7 @@ public class Condition {
     public Condition() {
     }
 
+
     public Integer getId() {
         return id;
     }

@@ -8,7 +8,9 @@ import java.util.List;
 public class Location {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "location_id_sequence_gen",
+            sequenceName="location_id_sequence", initialValue = 10)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "location_id_sequence_gen")
     @Column(name = "loc_id")
     private Integer id;
 
@@ -36,8 +38,11 @@ public class Location {
     @JoinColumn(name = "room_manager")
     private User user;
 
-    public Location(Integer id, String name, List<Device> devices, List<Condition> conditions,
-                    List<User> users, LocType locType, Standart standart, User user) {
+    @OneToMany(fetch = FetchType.LAZY,
+            mappedBy = "location", cascade = {CascadeType.ALL})
+    private List<User> users;
+
+    public Location(Integer id, String name, List<Device> devices, List<Condition> conditions, LocType locType, Standart standart, User user, List<User> users) {
         this.id = id;
         this.name = name;
         this.devices = devices;
@@ -45,6 +50,7 @@ public class Location {
         this.locType = locType;
         this.standart = standart;
         this.user = user;
+        this.users = users;
     }
 
     public Location() {

@@ -7,7 +7,7 @@
     <div class="page-header">
         <h3>Add new device</h3>
     </div>
-    <form th:action="@{/adddevice}" th:object="${device}" method="POST">
+    <form th:action="@{/device/add}" th:object="${device}" method="POST">
         <input type="hidden" th:field="*{id}" />
 
         <div class="form-group">

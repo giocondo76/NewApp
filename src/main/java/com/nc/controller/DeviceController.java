@@ -28,7 +28,7 @@ public class DeviceController {
     @Autowired
     private LocationRepository locationRepository;
 
-    @GetMapping("/device")
+    @GetMapping("/device/all")
     public String list(Map<String, Object> model){
 
         List<Device> devices = deviceRepository.findAll();
@@ -36,28 +36,28 @@ public class DeviceController {
         model.put("devices", devices);
         model.put("devTypes", devTypes);
 
-        return "device";
+        return "device/all";
 
     }
 
 
-    @GetMapping("/adddevice")
+    @GetMapping("/device/add")
     public String add(Map<String, Object>  model) {
 
         model.put("device", new Device());
         model.put("devTypes", devTypeRepository.findAll());
         model.put("locations", locationRepository.findAll());
-        return "adddevice";
+        return "device/add";
     }
 
 
-    @PostMapping("/adddevice")
+    @PostMapping("/device/add")
     public String add(@Valid Device device, BindingResult result) {
         if (result.hasErrors()) {
-            return "adddevice";
+            return "device/add";
         }
         deviceRepository.save(device);
 
-        return "redirect:/device";
+        return "redirect:/device/all";
     }
 }

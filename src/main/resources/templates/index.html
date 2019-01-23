@@ -9,7 +9,7 @@
             <h2> Please select location: </h2>
         </div>
 
-        <form method="post" action="index">
+        <form method="post" th:action="index">
             <input type="text" name="locId"/>
             <button type="submit" class="btn btn-primary">Find location</button>
             <input
@@ -27,10 +27,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="location : ${locations}">
-                    <td th:text="${location.id}"></td>
-                    <td><a th:href="@{/condition/{id}/(id=${location.id})}" th:text="${location.name}"/></td>
-                    <td><a th:href="@{/condition/{id}/(id=${location.id})}" th:text="${location.name}"/></td>
+                <tr th:each="locationFlag : ${locationFlags}">
+                    <td th:text="${locationFlag.location.id}"></td>
+                    <td><a th:href="@{/condition/{id}/(id=${locationFlag.location.id})}" th:text="${locationFlag.location.name}"/></td>
+                    <td th:text="${locationFlag.flag}"></td>
                 </tr>
                 </tbody>
             </table>
@@ -38,7 +38,7 @@
 
         <div class="row">
             <div class="col-md-2 col-md-offset-10">
-                <a type="button" class="btn btn-primary" th:href="@{/addlocation}">Add new Location</a>
+                <a type="button" class="btn btn-primary" th:href="@{/location/add}">Add new Location</a>
             </div>
         </div>
     </div>

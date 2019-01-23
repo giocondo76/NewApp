@@ -19,16 +19,14 @@
 
         <div id="navbar" class="collapse navbar-collapse">
             <ul sec:authorize="isAuthenticated()" class="nav navbar-nav">
-                <li><a href="/device">Devices</a></li>
+                <li><a href="/device/all">Devices</a></li>
                 <li><a href="/index">Locations</a></li>
+                <li><a href="/profile/edit">Profile</a></li>
             </ul>
 
 
             <form sec:authorize="isAuthenticated()" class="navbar-form navbar-right" th:action="@{/logout}" method="post">
                 <button type="submit" class="btn btn-link">Logout</button>
-            </form>
-            <form sec:authorize="isAuthenticated()" class="navbar-form navbar-right" th:action="@{/profile}" method="post">
-                <button type="submit" class="btn btn-link">Profile</button>
             </form>
 
             <ul sec:authorize="!isAuthenticated()" class="nav navbar-nav navbar-right">

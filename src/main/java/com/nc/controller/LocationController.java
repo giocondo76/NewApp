@@ -39,21 +39,21 @@ public class LocationController {
     private UserService userService;
 
 
-    @GetMapping("/addlocation")
+    @GetMapping("/location/add")
     public String add(ModelMap model) {
 
         model.addAttribute("location", new Location());
         model.addAttribute("locTypes", locTypeRepository.findAll());
         model.addAttribute("standarts", standartRepository.findAll());
-        return "addlocation";
+        return "location/add";
     }
 
-    @PostMapping("/addlocation")
+    @PostMapping("/location/add")
     public String add(@Valid Location location, BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
             model.addAttribute("locTypes", locTypeRepository.findAll());
             model.addAttribute("standarts", standartRepository.findAll());
-            return "addlocation";
+            return "location/add";
         }
         location.setUser(userService.getCurrentUser());
         locationRepository.save(location);

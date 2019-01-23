@@ -1,5 +1,6 @@
 package com.nc.service;
 
+import com.nc.entity.Location;
 import com.nc.entity.Role;
 import com.nc.entity.User;
 import com.nc.repository.RoleRepository;
@@ -81,7 +82,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateProfile(User user, String username, String email) {
+    public void updateProfile(User user, String username, String email, Location location, String password) {
         String userEmail = user.getEmail();
 
         boolean isEmailChanged = (email != null && !email.equals(userEmail)) ||
@@ -95,8 +96,11 @@ public class UserServiceImpl implements UserService {
             user.setUsername(username);
         }
 
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setLocation(location);
         userRepository.save(user);
 
     }
+
 
 }

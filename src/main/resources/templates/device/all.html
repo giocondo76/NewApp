@@ -17,16 +17,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="device : *{devices}">
-            <td th:text="*{device.name}"></td>
-            <td th:text="*{device.devType.name}"></td>
-            <td th:text="*{device.location.name}"></td>
+        <tr th:each="device : ${devices}">
+            <td th:text="${device.name}"></td>
+            <td th:text="${device.devType.name}"></td>
+            <td th:text="${device.location.name}"></td>
         </tr>
         </tbody>
     </table>
     <div class="row">
         <div class="col-md-2 col-md-offset-10">
-            <a type="button" class="btn btn-primary" th:href="@{/adddevice}">New Device</a>
+            <a type="button" class="btn btn-primary" th:href="@{/device/add}">New Device</a>
         </div>
     </div>
 </div>

@@ -7,7 +7,7 @@
     <div class="page-header">
         <h3>Add new location</h3>
     </div>
-    <form th:action="@{/addlocation}" th:object="${location}" method="POST">
+    <form th:action="@{/location/add}" th:object="${location}" method="POST">
         <input type="hidden" th:field="*{id}" />
 
         <div class="form-group">

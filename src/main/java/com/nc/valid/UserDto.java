@@ -1,6 +1,7 @@
 package com.nc.valid;
 
 
+import com.nc.entity.Location;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
@@ -20,6 +21,16 @@ public class UserDto {
     @NotEmpty
     private String password;
     private String confirmPassword;
+
+    private Location location;
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
 
     public String getUsername() {
         return username;

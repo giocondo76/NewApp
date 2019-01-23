@@ -14,7 +14,7 @@ public class User implements UserDetails {
 
     @Id
     @SequenceGenerator(name = "user_id_sequence_gen",
-            sequenceName="user_id_sequence", initialValue = 10)
+            sequenceName="user_id_sequence", initialValue = 2)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id_sequence_gen")
     private Integer id;
     @Column(name="name")
@@ -27,6 +27,9 @@ public class User implements UserDetails {
     @Column(name="password")
     private String password;
 
+    @ManyToOne
+    @JoinColumn(name = "location")
+    private Location location;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -35,22 +38,30 @@ public class User implements UserDetails {
             inverseJoinColumns = {@JoinColumn(name = "role_id")})
     private Set<Role> roles;
 
-    @OneToMany(fetch = FetchType.LAZY,
+    @OneToMany(fetch = FetchType.EAGER,
             mappedBy = "user")
     private List<Location> locations;
 
     public User() {
     }
 
-    public User(Integer id, String username, String email, String password, Set<Role> roles, List<Location> locations) {
+    public User(Integer id, String username, String email, String password, Location location, Set<Role> roles, List<Location> locations) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.location = location;
         this.roles = roles;
         this.locations = locations;
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
 
     public List<Location> getLocations() {
         return locations;

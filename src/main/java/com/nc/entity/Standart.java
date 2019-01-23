@@ -40,6 +40,8 @@ public class Standart {
             mappedBy = "standart")
     private List<Location> locations;
 
+
+
     public Standart() {
     }
 
