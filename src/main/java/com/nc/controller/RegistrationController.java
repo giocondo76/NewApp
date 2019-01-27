@@ -1,5 +1,7 @@
 package com.nc.controller;
 
+import com.nc.controller.response.EmailExistsException;
+import com.nc.controller.response.UsernameExistsException;
 import com.nc.valid.UserDto;
 import com.nc.entity.User;
 import com.nc.service.UserService;
@@ -28,7 +30,7 @@ public class RegistrationController {
     @PostMapping("/registration")
     public String registration(
             @Valid @ModelAttribute("userForm") UserDto userDto,
-            BindingResult bindingResult) {
+            BindingResult bindingResult) throws EmailExistsException, UsernameExistsException {
 
         if (bindingResult.hasErrors()) {
             return "registration";
@@ -39,7 +41,7 @@ public class RegistrationController {
         user.setEmail(userDto.getEmail());
         user.setPassword(userDto.getPassword());
 
-        userService.signupUser(user);
+        userService.registerNewUserAccount(user);
 
         return "redirect:/";
     }

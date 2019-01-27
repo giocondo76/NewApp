@@ -18,8 +18,6 @@ import java.util.Map;
 @Controller
 public class UserController {
 
-
-
     @Autowired
     private UserService userService;
 
@@ -28,9 +26,17 @@ public class UserController {
 
     @GetMapping("/profile")
     public String getProfile(Map<String, Object> model) {
-        User user = userService.getCurrentUser();
-        model.put("user", user);
 
+        User user = userService.getCurrentUser();
+        if (user.getLocation() == null) {
+            model.put("user", user);
+            model.put("location", new Location());
+            return "profile";
+        }
+        else{
+            model.put("user", user);
+            model.put("location", locationRepository.findOne(user.getLocation().getId()));
+        }
         return "profile";
     }
 
@@ -43,20 +49,6 @@ public class UserController {
         model.put("locations", locationRepository.findAll());
         return "profile/edit";
     }
-
-//    @PostMapping("/profile")
-//    public String updateProfile(
-//            @AuthenticationPrincipal User user,
-//            @RequestParam String username,
-//            @RequestParam String email,
-//            @RequestParam Location location) {
-//
-//        user.setLocation(location);
-//        userService.updateProfile(user, username, email,location);
-//
-//
-//        return "redirect:/profile";
-//    }
 
     @PostMapping("/profile/edit")
     public String updateProfile(
@@ -74,7 +66,7 @@ public class UserController {
 
         userService.updateProfile(user, userDto.getUsername(),userDto.getEmail(),userDto.getLocation(),userDto.getPassword());
 
-        return "redirect:/";
+        return "redirect:/profile";
     }
 
 }

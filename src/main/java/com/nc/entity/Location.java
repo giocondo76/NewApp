@@ -38,7 +38,7 @@ public class Location {
     @JoinColumn(name = "room_manager")
     private User user;
 
-    @OneToMany(fetch = FetchType.LAZY,
+    @OneToMany(fetch = FetchType.EAGER,
             mappedBy = "location", cascade = {CascadeType.ALL})
     private List<User> users;
 

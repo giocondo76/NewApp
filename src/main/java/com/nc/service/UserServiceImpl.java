@@ -1,5 +1,7 @@
 package com.nc.service;
 
+import com.nc.controller.response.EmailExistsException;
+import com.nc.controller.response.UsernameExistsException;
 import com.nc.entity.Location;
 import com.nc.entity.Role;
 import com.nc.entity.User;
@@ -47,13 +49,40 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User signupUser(User user) {
+    public User registerNewUserAccount(User user) throws EmailExistsException, UsernameExistsException {
+        if (emailExist(user.getEmail())) {
+            throw new EmailExistsException(
+                    "There is an account with that email adress: "
+                            +  user.getEmail());
+        }
+
+        if (usernameExist(user.getUsername())) {
+            throw new UsernameExistsException(
+                    "There is an account with that Username: "
+                            +  user.getUsername());
+        }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         Role userRole = roleRepository.findOne((int) ROLE_USER_ID);
         user.setRoles(Collections.singleton(userRole));
         return userRepository.save(user);
     }
 
+    private boolean emailExist(String email) {
+        User user = userRepository.findByEmail(email);
+        if (user != null) {
+            return true;
+        }
+        return false;
+    }
+
+
+    private boolean usernameExist(String username) {
+        User user = userRepository.findByUsername(username);
+        if (user != null) {
+            return true;
+        }
+        return false;
+    }
 
     @Override
     public User getCurrentUser() {

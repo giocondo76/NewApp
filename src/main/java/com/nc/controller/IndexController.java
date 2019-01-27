@@ -7,8 +7,10 @@ import com.nc.repository.RoleRepository;
 import com.nc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
@@ -41,17 +43,18 @@ public class IndexController {
             else
                 locationFlags.add(new LocationFlag(location,"User"));
         }
+        model.put("locations", locations);
         model.put("locationFlags",locationFlags);
         return "index";
 
     }
 
-    @PostMapping("index")
-    public String search(@RequestParam Integer locId, Map<String, Object> model) {
+    @GetMapping(value={"/index"})
+    public String searchLocationById(@RequestParam Integer search, Map<String, Object> model) {
         Iterable<Location> locations;
 
-        if (locId != null) {
-            locations = Collections.singleton(locationRepository.findById(locId));
+        if (search != null) {
+            locations = Collections.singleton(locationRepository.findById(search));
         } else {
             locations = locationRepository.findAll();
 
@@ -59,4 +62,10 @@ public class IndexController {
         model.put("locations", locations);
         return "index";
     }
+
+//    @GetMapping(value={"/","/index"})
+//    public String showStudentBySurname(@RequestParam (value = "surname", required = false) String surname, Model model) {
+//        model.addAttribute("search", studentService.listStudentsBySurname(surname));
+//        return "students";
+//    }
 }

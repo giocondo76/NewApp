@@ -5,41 +5,33 @@
 <body>
 <div th:fragment="content">
     <div  class="page-header">
-        <h3 class="text-center">Change profile</h3>
+        <h3 class="text-center">Your profile</h3>
     </div>
-    <form th:action="@{/profile/edit}" method="post" class="form-sign" th:object="${user}">
-        <div class="form-group">
-            <label class="control-label" for="username">User Name</label>
-            <input type="text" class="form-control" id="username" th:field="*{username}" placeholder="Username" />
+        <div class="list-conditions">
+            <table class="table table-striped">
+                <tbody>
+                <tr >
+                    <td>Your name  </td>
+                    <td th:text="*{user.username}"></td>
+                </tr>
+                <tr >
+                    <td>Your email  </td>
+                    <td th:text="*{user.email}"></td>
+                </tr>
+                <tr >
+                    <td>Your location  </td>
+                    <td th:text="${location.name}"></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="form-group">
-            <label class="control-label" for="email">Email</label>
-            <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="Email" />
+    <div class="row">
+        <div class="col-md-2 col-md-offset-10">
+            <a type="button" class="btn btn-primary" th:href="@{/profile/edit}">Edit profile</a>
         </div>
-        <div class="form-group">
-            <label class="control-label" for="password">Password</label>
-            <input type="password" class="form-control" th:field="*{password}" id="password" placeholder="Password" />
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="confirmPassword">Confirm Password</label>
-            <input type="password" class="form-control" th:field="*{confirmPassword}" id="confirmPassword" placeholder="Confirm Password" />
-        </div>
+    </div>
 
-        <div class="form-group">
-            <label for="location">Location name</label>
-            <select id="location" class="form-control" th:name="${location}" th:field="*{location.id}">
-                <option th:each="location : ${locations}"
-                        th:value="${location.id}"
-                        th:text="${location.name}">
-                </option>
-            </select>
-            <ul>
-                <li th:each="err : ${#fields.errors('location.id')}" th:text="${err}"></li>
-            </ul>
-        </div>
 
-        <button type="submit" class="btn btn-default">Save changes</button>
-    </form>
 </div>
 </body>
 </html>
