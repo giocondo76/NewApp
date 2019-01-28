@@ -22,16 +22,20 @@
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th>Date</th>
                     <th>Temp</th>
                     <th>Hum</th>
                     <th>CO2</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="condition : *{conditions}">
-                    <td th:text="*{condition.temp}"></td>
-                    <td th:text="*{condition.hum}"></td>
-                    <td th:text="*{condition.co2}"></td>
+                <tr th:each="conditionStatus : *{conditionStatuses}">
+                    <td th:text="*{conditionStatus.condition.timestamp}"></td>
+                    <td th:text="*{conditionStatus.condition.temp}"></td>
+                    <td th:text="*{conditionStatus.condition.hum}"></td>
+                    <td th:text="*{conditionStatus.condition.co2}"></td>
+                    <td th:text="*{conditionStatus.status}"></td>
                 </tr>
             </tbody>
         </table>
@@ -65,19 +69,32 @@
             </tbody>
         </table>
     </div>
-
-    <div th:switch="${locationFlag.flag}">
-        <p th:case="'Admin'">User is an administrator</p>
-        <p th:case="*">User is some other thing</p>
-    </div>
+    <!--<div>-->
+        <!--<table class="table table-striped">-->
+            <!--<thead>-->
+            <!--<tr>-->
+                <!--<th>Standart</th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+                <!--<td th:text="*{standart.name}"></td>-->
+                <!--<td th:text="*{standart.temp_min}"></td>-->
+                <!--<td th:text="*{standart.temp_max}"></td>-->
+                <!--<td th:text="*{standart.hum_max}"></td>-->
+                <!--<td th:text="*{standart.co2_min}"></td>-->
+                <!--<td th:text="*{standart.co2_max}"></td>-->
+            <!--</tbody>-->
+        <!--</table>-->
+        <!--<div th:switch="${locationFlag.flag}">-->
+            <!--<p th:case="'Admin'">-->
+            <!--</p>-->
+        <!--</div>-->
+     <!--</div>-->
+</div>
 
     <!--<script>-->
-        <!--function toggle(el) {el.style.display = (el.style.display == 'none') ? '' : 'none'}-->
-        <!--</script>-->
-    <script>
-        setInterval(function() {$("#conditions").load(condition.html);}, 300000)
-    </script>
-</div>
+        <!--&lt;!&ndash;setInterval(refreshPage, 3000)&ndash;&gt;-->
+    <!--&lt;!&ndash;</script>&ndash;&gt;-->
 
 </body>
 </html>

@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cad919bf-9c11-4931-8950-54b72ef3d9fd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nc/entity/Change.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nc/entity/ConditionStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nc/controller/ConditionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nc/controller/ConditionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nc/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nc/controller/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/condition.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/condition.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/nc/controller/ConditionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nc/controller/ConditionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/nc/controller/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nc/controller/IndexController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/nc/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nc/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/condition.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/condition.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/DeviceEmulator/target/" />
@@ -31,17 +30,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/controller/IndexController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="35" column="8" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="64" />
+            <state relative-caret-position="1254">
+              <caret line="96" column="7" lean-forward="true" selection-start-line="96" selection-start-column="7" selection-end-line="96" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/repository/LocationRepository.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="14" column="34" selection-start-line="12" selection-start-column="36" selection-end-line="14" selection-end-column="34" />
+            <state relative-caret-position="340">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -49,8 +51,48 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
+            <state relative-caret-position="-69">
               <caret line="10" column="59" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/profile.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/profile/edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="44" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/entity/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="522">
+              <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/valid/UserDto.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+              <folding>
+                <element signature="e#954#955#0" expanded="true" />
+                <element signature="e#992#993#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,17 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/controller/ConditionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/entity/LocationFlag.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+            <state relative-caret-position="388">
+              <caret line="58" column="42" lean-forward="true" selection-start-line="57" selection-start-column="9" selection-end-line="58" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -76,50 +109,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/condition.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
+            <state relative-caret-position="472">
+              <caret line="50" column="39" lean-forward="true" selection-start-line="50" selection-start-column="39" selection-end-line="50" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/1.13.10.RELEASE/spring-data-commons-1.13.10.RELEASE.jar!/org/springframework/data/repository/core/support/RepositoryFactorySupport.class">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/device/all.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="110" selection-start-line="110" selection-end-line="110" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/controller/DeviceController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="55" column="6" selection-start-line="55" selection-start-column="6" selection-end-line="57" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/repository/SuggestionRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" selection-start-line="11" selection-end-line="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/entity/Suggestion.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="459">
+              <caret line="27" column="26" selection-start-line="26" selection-start-column="4" selection-end-line="30" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -130,9 +130,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
-        <option value="HTML File" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -155,10 +155,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nc/entity/Role.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nc/repository/RoleRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/registration.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/login.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/nc/repository/DevTypeRepository.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/deviceadd.html" />
@@ -185,11 +181,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/nc/controller/LocationController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/nc/entity/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/nc/valid/UserDto.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/profile/edit.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/nc/repository/SuggestionRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/data.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/nc/entity/Location.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nc/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/nc/controller/response/EmailExistsException.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/nc/repository/UserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/nc/service/UserService.java" />
@@ -204,6 +197,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/nc/controller/SuggestionController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/nc/entity/Suggestion.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/nc/repository/LocationFlagRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/nc/entity/ConditionStatus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/nc/service/ConditionSeviceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/nc/service/ConditionService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/data.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/profile/edit.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/nc/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/standart/edit.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/nc/controller/ConditionController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/condition.html" />
       </list>
@@ -252,41 +252,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="AirtrackApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="airtrack-app" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="AirtrackApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="airtrack-app" type="616d4139:PackageViewModuleNode" />
-              <item name="com.nc" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="AirtrackApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="airtrack-app" type="616d4139:PackageViewModuleNode" />
-              <item name="com.nc" type="1f31426a:PackageElementNode" />
-              <item name="controller" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="AirtrackApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="airtrack-app" type="616d4139:PackageViewModuleNode" />
-              <item name="com.nc" type="1f31426a:PackageElementNode" />
-              <item name="entity" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="AirtrackApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="airtrack-app" type="616d4139:PackageViewModuleNode" />
-              <item name="com.nc" type="1f31426a:PackageElementNode" />
-              <item name="repository" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -438,11 +403,46 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="AirtrackApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="airtrack-app" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="AirtrackApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="airtrack-app" type="616d4139:PackageViewModuleNode" />
+              <item name="com.nc" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="AirtrackApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="airtrack-app" type="616d4139:PackageViewModuleNode" />
+              <item name="com.nc" type="1f31426a:PackageElementNode" />
+              <item name="controller" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="AirtrackApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="airtrack-app" type="616d4139:PackageViewModuleNode" />
+              <item name="com.nc" type="1f31426a:PackageElementNode" />
+              <item name="entity" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="AirtrackApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="airtrack-app" type="616d4139:PackageViewModuleNode" />
+              <item name="com.nc" type="1f31426a:PackageElementNode" />
+              <item name="repository" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548641272406" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548673729366" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -515,14 +515,20 @@
       <option name="project" value="LOCAL" />
       <updated>1548272009227</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added  right suggestion&#10;added update conditions every 5 minute">
+      <created>1548641405003</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1548641405003</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29798657" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30201343" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -532,8 +538,8 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.3286119" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.04249292" />
-      <window_info anchor="bottom" id="Debug" order="4" visible="true" weight="0.04249292" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.09065156" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.18271954" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -591,19 +597,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed add location&#10;fixed add device&#10;added profile" />
     <MESSAGE value="added user's update&#10;added suggestion" />
-    <option name="LAST_COMMIT_MESSAGE" value="added user's update&#10;added suggestion" />
+    <MESSAGE value="added  right suggestion&#10;added update conditions every 5 minute" />
+    <MESSAGE value="add information of every condition" />
+    <option name="LAST_COMMIT_MESSAGE" value="add information of every condition" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/nc/controller/ConditionController.java</url>
-          <line>51</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="location.standart" />
@@ -611,41 +609,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/controller/ExceptionHandlerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/config/WebSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.2.1.Final/hibernate-core-5.2.1.Final.jar!/org/hibernate/engine/spi/CascadingActions.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="204" selection-start-line="204" selection-end-line="204" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/lang/reflect/Method.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="497" selection-start-line="497" selection-end-line="497" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/valid/PasswordMatches.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/valid/EmailValidator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -695,35 +658,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/valid/UserDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#954#955#0" expanded="true" />
-            <element signature="e#992#993#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-validator/5.3.6.Final/hibernate-validator-5.3.6.Final.jar!/org/hibernate/validator/internal/engine/constraintvalidation/ConstraintTree.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2">
           <caret line="254" selection-start-line="254" selection-end-line="254" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/entity/Condition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="12" column="23" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="12" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/data.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="32" column="33" lean-forward="true" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -741,13 +679,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="29" column="4" lean-forward="true" selection-start-line="29" selection-start-column="4" selection-end-line="31" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/entity/Location.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
@@ -759,13 +690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret line="9" column="27" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="59" lean-forward="true" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -790,24 +714,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/service/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="82" column="9" lean-forward="true" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/registration.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="23" column="72" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/profile/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="14" selection-start-line="9" selection-start-column="4" selection-end-line="13" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -849,30 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/entity/Standart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" selection-start-line="5" selection-end-line="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="35" column="13" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/device/all.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="14" lean-forward="true" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/location/add.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -881,20 +767,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/controller/SuggestionController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/device/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="36" selection-start-line="10" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/repository/ConditionRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -902,9 +774,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/repository/LocationFlagRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/repository/LocationRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="14" column="34" selection-start-line="12" selection-start-column="36" selection-end-line="14" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/1.13.10.RELEASE/spring-data-commons-1.13.10.RELEASE.jar!/org/springframework/data/repository/core/support/RepositoryFactorySupport.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="110" selection-start-line="110" selection-end-line="110" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/repository/SuggestionRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
+        <state relative-caret-position="102">
           <caret line="11" selection-start-line="11" selection-end-line="13" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -919,40 +806,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/repository/LocationRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/entity/LocationFlag.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="14" column="34" selection-start-line="12" selection-start-column="36" selection-end-line="14" selection-end-column="34" />
+        <state relative-caret-position="102">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="7" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/1.13.10.RELEASE/spring-data-commons-1.13.10.RELEASE.jar!/org/springframework/data/repository/core/support/RepositoryFactorySupport.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/entity/ConditionStatus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="110" selection-start-line="110" selection-end-line="110" />
+        <state relative-caret-position="357">
+          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <folding>
+            <element signature="e#329#330#0" expanded="true" />
+            <element signature="e#361#362#0" expanded="true" />
+            <element signature="e#414#415#0" expanded="true" />
+            <element signature="e#456#457#0" expanded="true" />
+            <element signature="e#489#490#0" expanded="true" />
+            <element signature="e#518#519#0" expanded="true" />
+            <element signature="e#562#563#0" expanded="true" />
+            <element signature="e#598#599#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/repository/LocationFlagRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        <state relative-caret-position="221">
+          <caret line="17" column="83" selection-start-line="17" selection-start-column="83" selection-end-line="17" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/service/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="82" column="9" lean-forward="true" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/service/ConditionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/entity/LocationFlag.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/service/ConditionSeviceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+        <state relative-caret-position="540">
+          <caret line="51" column="5" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="51" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/controller/DeviceController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
+        <state relative-caret-position="563">
           <caret line="55" column="6" selection-start-line="55" selection-start-column="6" selection-end-line="57" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -960,31 +874,122 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/data.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/entity/Change.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/entity/Condition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="28" column="24" lean-forward="true" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/entity/Standart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="32" column="27" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/device/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="523">
+          <caret line="43" column="11" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="43" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/device/all.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="26" selection-start-line="26" selection-start-column="4" selection-end-line="30" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/valid/UserDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+          <folding>
+            <element signature="e#954#955#0" expanded="true" />
+            <element signature="e#992#993#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/profile/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="44" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/standart/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/controller/IndexController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="35" column="8" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="64" />
+        <state relative-caret-position="1254">
+          <caret line="96" column="7" lean-forward="true" selection-start-line="96" selection-start-column="7" selection-end-line="96" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/nc/controller/ConditionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+        <state relative-caret-position="388">
+          <caret line="58" column="42" lean-forward="true" selection-start-line="57" selection-start-column="9" selection-end-line="58" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
+        <state relative-caret-position="-69">
           <caret line="10" column="59" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/condition.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
+        <state relative-caret-position="472">
+          <caret line="50" column="39" lean-forward="true" selection-start-line="50" selection-start-column="39" selection-end-line="50" selection-end-column="39" />
         </state>
       </provider>
     </entry>
