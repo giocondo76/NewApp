@@ -42,10 +42,17 @@ public class User implements UserDetails {
             mappedBy = "user")
     private List<Location> locations;
 
+    @OneToMany(fetch = FetchType.LAZY,
+            mappedBy = "user")
+    private List<UserVote> userVotes;
+
+
+
     public User() {
     }
 
-    public User(Integer id, String username, String email, String password, Location location, Set<Role> roles, List<Location> locations) {
+    public User(Integer id, String username, String email, String password, Location location,
+                Set<Role> roles, List<Location> locations, List<UserVote> userVotes) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -53,6 +60,15 @@ public class User implements UserDetails {
         this.location = location;
         this.roles = roles;
         this.locations = locations;
+        this.userVotes = userVotes;
+    }
+
+    public List<UserVote> getUserVotes() {
+        return userVotes;
+    }
+
+    public void setUserVotes(List<UserVote> userVotes) {
+        this.userVotes = userVotes;
     }
 
     public Location getLocation() {

@@ -42,7 +42,12 @@ public class Location {
             mappedBy = "location", cascade = {CascadeType.ALL})
     private List<User> users;
 
-    public Location(Integer id, String name, List<Device> devices, List<Condition> conditions, LocType locType, Standart standart, User user, List<User> users) {
+    @OneToMany(fetch = FetchType.EAGER,
+            mappedBy = "location", cascade = {CascadeType.ALL})
+    private List<Change> changes;
+
+    public Location(Integer id, String name, List<Device> devices, List<Condition> conditions,
+                    LocType locType, Standart standart, User user, List<User> users, List<Change> changes) {
         this.id = id;
         this.name = name;
         this.devices = devices;
@@ -51,6 +56,7 @@ public class Location {
         this.standart = standart;
         this.user = user;
         this.users = users;
+        this.changes = changes;
     }
 
     public Location() {
@@ -111,6 +117,22 @@ public class Location {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    public List<Change> getChanges() {
+        return changes;
+    }
+
+    public void setChanges(List<Change> changes) {
+        this.changes = changes;
     }
 }
 

@@ -44,6 +44,7 @@ public class ConditionController {
     public String condition(Map<String, Object> model, @PathVariable Integer id) {
 
         Location location = locationRepository.findById(id);
+        model.put("location", location);
         LocationFlag locationFlag;
         if(location.getUser().getId().equals(userService.getCurrentUser().getId())){
              locationFlag = new LocationFlag(locationRepository.findById(id),"Admin");
@@ -55,12 +56,17 @@ public class ConditionController {
 
         List<Condition> conditions = conditionRepository.findByLocationId(id);
         List<ConditionStatus> conditionStatuses = getListOfConditionStatuses(conditions, location);
-//        Standart standart = location.getStandart();
-//        model.put("standart", standart);
         model.put("conditionStatuses", conditionStatuses);
         List<Suggestion> suggestions = suggestionRepository.findByLocationId(id);
         model.put("suggestions", suggestions);
         model.put("suggestion", new Suggestion());
+
+        User user = userService.getCurrentUser();
+        model.put("user", user);
+
+        if(location.getChanges() != null){
+            model.put("change", location.getChanges());
+        }
         return "condition";
     }
 

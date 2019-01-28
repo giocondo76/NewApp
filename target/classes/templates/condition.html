@@ -69,6 +69,18 @@
             </tbody>
         </table>
     </div>
+
+    <!--<div th:if="${user.location} == null">-->
+        <!--<p> You need to choose  your work location</p>-->
+    <!--</div>-->
+    <!--<div th:unless="${user.location.id} == ${location.id}">-->
+        <!--Второе условие-->
+
+    <!--</div>-->
+    <!--<div th:switch="${user.location.id}">-->
+         <!--<div th:case="${location.id}">-->
+             <!--<div th:if="${change}!= null">Change is not null</div>-->
+          <!--</div>-->
     <!--<div>-->
         <!--<table class="table table-striped">-->
             <!--<thead>-->
@@ -85,10 +97,15 @@
                 <!--<td th:text="*{standart.co2_max}"></td>-->
             <!--</tbody>-->
         <!--</table>-->
-        <!--<div th:switch="${locationFlag.flag}">-->
-            <!--<p th:case="'Admin'">-->
-            <!--</p>-->
-        <!--</div>-->
+        <div th:switch="${locationFlag.flag}">
+            <p th:case="'Admin'">
+            <div class="row">
+                <div class="col-md-2 col-md-offset-10">
+                    <a type="button" class="btn btn-primary" th:href="@{/standart/{id}/edit/(id=${locationFlag.location.id})}">Change standart</a>
+                </div>
+            </div>
+            </p>
+        </div>
      <!--</div>-->
 </div>
 

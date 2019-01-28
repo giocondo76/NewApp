@@ -76,19 +76,19 @@ public class IndexController {
 //
 //    }
 //
-//    @GetMapping(value={"/index"})
-//    public String searchLocationById(@RequestParam Integer search, Map<String, Object> model) {
-//        Iterable<Location> locations;
-//
-//        if (search != null) {
-//            locations = Collections.singleton(locationRepository.findById(search));
-//        } else {
-//            locations = locationRepository.findAll();
-//
-//        }
-//        model.put("locations", locations);
-//        return "index";
-//    }
+    @PostMapping(value={"/index"})
+    public String searchLocationById(@RequestParam Integer search, Map<String, Object> model) {
+        Iterable<Location> locations;
+
+        if (search != null) {
+            locations = Collections.singleton(locationRepository.findById(search));
+        } else {
+            locations = locationRepository.findAll();
+
+        }
+        model.put("locations", locations);
+        return "index";
+    }
 
 //    @GetMapping(value={"/","/index"})
 //    public String showStudentBySurname(@RequestParam (value = "surname", required = false) String surname, Model model) {

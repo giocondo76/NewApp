@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:include="layout :: page">
+<body>
+<div th:fragment="content">
+    <div th:switch="${locationFlag.flag}">
+        <div th:case="'Admin'">
+            <div  class="page-header">
+                <h3 class="text-center">Change standart</h3>
+            </div>
+            <form th:action="@{/standart/{id}/edit/(id=${locationFlag.location.id})}" method="post" class="form-sign" th:object="${change}">
+                <input type="hidden" th:field="*{id}" />
+                <div class="form-group">
+                    <label class="control-label" for="name">Standart name</label>
+                    <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="name" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="temp_min">temp_min</label>
+                    <input type="text" class="form-control" id="temp_min" th:field="*{temp_min}" placeholder="temp_min" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="temp_max">temp_max</label>
+                    <input type="text" class="form-control" th:field="*{temp_max}" id="temp_max" placeholder="temp_max" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="hum_max">hum_max</label>
+                    <input type="text" class="form-control" th:field="*{hum_max}" id="hum_max" placeholder="hum_max" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="co2_min">co2_min</label>
+                    <input type="text" class="form-control" th:field="*{co2_min}" id="co2_min" placeholder="co2_min" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="co2_max">co2_max</label>
+                    <input type="text" class="form-control" th:field="*{co2_max}" id="co2_max" placeholder="co2_max" />
+                </div>
+
+                <button type="submit" class="btn btn-default">Save changes</button>
+            </form>
+        </div>
+        <div th:case="'User'"><h3>You are not Admin for this page :(  Nothing to show for you </h3></div>
+    </div>
+</div>
+</body>
+</html>
