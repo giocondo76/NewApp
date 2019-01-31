@@ -11,11 +11,8 @@
         <input type="hidden" th:field="*{id}" />
 
         <div class="form-group">
-            <label for="text">Device</label>
-            <textarea class="form-control" id="text" th:field="*{name}" ></textarea>
-            <ul>
-                <li th:each="err : ${#fields.errors('name')}" th:text="${err}"></li>
-            </ul>
+            <label class="control-label" for="text">Device name</label>
+            <input type="text" class="form-control" id="text" th:field="*{name}" th:placeholder="Name" />
         </div>
         <div class="form-group">
             <label for="type">Device type</label>
@@ -40,7 +37,7 @@
                 <li th:each="err : ${#fields.errors('location.id')}" th:text="${err}"></li>
             </ul>
         </div>
-        <button type="submit" class="btn btn-default">Save</button>
+        <button type="submit" class="btn btn-primary">Save</button>
     </form>
 </div>
 </body>
