@@ -29,7 +29,7 @@ public class DeviceController {
     private LocationRepository locationRepository;
 
     @GetMapping("/device/all")
-    public String list(Map<String, Object> model){
+    public String showAllDevices(Map<String, Object> model){
 
         List<Device> devices = deviceRepository.findAll();
         List<DevType> devTypes= devTypeRepository.findAll();
@@ -37,12 +37,11 @@ public class DeviceController {
         model.put("devTypes", devTypes);
 
         return "device/all";
-
     }
 
 
     @GetMapping("/device/add")
-    public String add(Map<String, Object>  model) {
+    public String addDevice(Map<String, Object>  model) {
 
         model.put("device", new Device());
         model.put("devTypes", devTypeRepository.findAll());
@@ -52,7 +51,7 @@ public class DeviceController {
 
 
     @PostMapping("/device/add")
-    public String add(@Valid Device device, BindingResult result) {
+    public String addDevice(@Valid Device device, BindingResult result) {
         if (result.hasErrors()) {
             return "device/add";
         }

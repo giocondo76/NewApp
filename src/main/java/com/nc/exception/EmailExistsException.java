@@ -1,4 +1,4 @@
-package com.nc.controller.response;
+package com.nc.exception;
 
 public class EmailExistsException extends Exception {
 

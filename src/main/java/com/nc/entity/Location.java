@@ -78,7 +78,6 @@ public class Location {
         this.name = name;
     }
 
-
     public LocType getLocType() {
         return locType;
     }

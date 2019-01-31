@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css"
           href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-    <link rel="stylesheet" th:href="@{/css/theme.css}" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
 
 </head>
 <body>
@@ -20,19 +20,17 @@
 
         <div id="navbar" class="collapse navbar-collapse">
             <ul sec:authorize="isAuthenticated()" class="nav navbar-nav">
-                <li><a href="/index">Locations</a></li>
+                <li class="nav-item"><a href="/index">Locations</a></li>
                 <li><a href="/device/all">Devices</a></li>
                 <li><a href="/standart/all">Standarts</a></li>
                 <li><a href="/profile">Profile</a></li>
             </ul>
-
-
             <form sec:authorize="isAuthenticated()" class="navbar-form navbar-right" th:action="@{/logout}" method="post">
                 <button type="submit" class="btn btn-link">Logout</button>
             </form>
 
             <ul sec:authorize="!isAuthenticated()" class="nav navbar-nav navbar-right">
-                <li><a th:href="@{/registration}">Sign Up</a></li>
+                <li><a th:href="@{/registration}">Registration</a></li>
             </ul>
         </div>
     </div>

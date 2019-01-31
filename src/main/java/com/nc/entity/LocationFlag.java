@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 
 public class LocationFlag {
 
-
     @Autowired
     private UserService userService;
 
@@ -38,16 +37,4 @@ public class LocationFlag {
         this.flag = flag;
     }
 
-    public LocationFlag addLocationFlag(Location location, User user){
-
-
-        LocationFlag locationFlag;
-        if(location.getUser().getId().equals(userService.getCurrentUser().getId())){
-            locationFlag = new LocationFlag(location,"Admin");
-        }
-        else
-            locationFlag = new LocationFlag(location,"User");
-
-        return locationFlag;
-    }
 }

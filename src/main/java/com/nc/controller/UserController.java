@@ -57,9 +57,9 @@ public class UserController {
     @PostMapping("/profile/edit")
     public String updateProfile(
             @Valid @ModelAttribute("userForm") UserDto userDto,
-            BindingResult bindingResult) {
+            BindingResult bindingResult){
 
-        if (bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()){
             return "profile/edit";
         }
 
@@ -67,11 +67,9 @@ public class UserController {
         user.setUsername(userDto.getUsername());
         user.setEmail(userDto.getEmail());
         user.setPassword(userDto.getPassword());
-        if(userVoteRepository.findByUserId(user.getId()) != null)
-        {
+        if(userVoteRepository.findByUserId(user.getId()) != null) {
             userVoteRepository.delete(userVoteRepository.findByUserId(user.getId()));
         }
-
         userService.updateProfile(user, userDto);
 
         return "redirect:/profile";

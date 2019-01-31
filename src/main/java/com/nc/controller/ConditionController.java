@@ -26,26 +26,26 @@ public class ConditionController {
 
     private Location location;
 
-   @Autowired
-   private LocationRepository locationRepository;
+    @Autowired
+    private LocationRepository locationRepository;
 
-   @Autowired
-   private UserService userService;
+    @Autowired
+    private UserService userService;
 
-   @Autowired
-   private StandartRepository standartRepository;
+    @Autowired
+    private StandartRepository standartRepository;
 
-   @Autowired
-   private ChangeRepository changeRepository;
+    @Autowired
+    private ChangeRepository changeRepository;
 
-   @Autowired
-   private UserVoteRepository userVoteRepository;
+    @Autowired
+    private UserVoteRepository userVoteRepository;
 
-   @Autowired
-   private UserVoteService userVoteService;
+    @Autowired
+    private UserVoteService userVoteService;
 
     @GetMapping("/condition/{id}")
-    public String condition(Map<String, Object> model, @PathVariable Integer id) {
+    public String showConditions(Map<String, Object> model, @PathVariable Integer id) {
 
         Location location = locationRepository.findById(id);
         model.put("location", location);
@@ -62,6 +62,7 @@ public class ConditionController {
         User user = userService.getCurrentUser();
         model.put("user", user);
 
+        model.put("standart", location.getStandart());
 
         Change change = changeRepository.findByLocationId(id);
         model.put("change", change);
@@ -69,19 +70,14 @@ public class ConditionController {
         UserVote userVote = userVoteRepository.findByUserId(user.getId());
 
         if(userVote == null){
-
             model.put("userVote", new UserVote());
-
-
-        }else if(userVote.getVote() != null && user.getLocation().getId().equals(location.getId()))
-        {
+        }else if(userVote.getVote() != null && user.getLocation().getId().equals(location.getId())) {
             model.put("userVote", userVote);
             Integer result = userVoteService.showVotingResult(location);
             model.put("votingResult", result);
         }
         return "condition";
     }
-
 
     @PostMapping("/condition/{id}")
     public String addSuggestionAndVote(@Valid Suggestion suggestion, @PathVariable Integer id , Map<String, Object> model,
@@ -99,8 +95,7 @@ public class ConditionController {
         List<ConditionStatus> conditionStatuses = getListOfConditionStatuses(conditions, location);
         model.put("conditionStatuses", conditionStatuses);
 
-        if(suggestion.getText() != null)
-        {
+        if(suggestion.getText() != null) {
             suggestion.setLocation(locationRepository.findById(id));
             suggestionRepository.save(suggestion);
             model.put("suggestion", new Suggestion());
@@ -115,7 +110,6 @@ public class ConditionController {
         Change change = changeRepository.findByLocationId(id);
         model.put("change", change);
 
-
         Integer votingResult;
         if(userVote.getVote() != null){
                 userVote.setUser(user);
@@ -124,11 +118,9 @@ public class ConditionController {
                 model.put("userVote", userVote);
                 model.put("votingResult", votingResult);
             }
-        else
-        {
+        else {
             userVote = userVoteRepository.findByUserId(user.getId());
             model.put("userVote",userVote);
-
         }
         return "condition";
     }
@@ -147,18 +139,15 @@ public class ConditionController {
         return  locationFlag;
     }
 
-    public List<ConditionStatus> getListOfConditionStatuses(List<Condition> conditions, Location location) {
+    public List<ConditionStatus> getListOfConditionStatuses(List<Condition> conditions, Location location){
 
         List<ConditionStatus> conditionStatuses = new ArrayList<>();
         for (Condition condition: conditions) {
             if (condition.getTemp() < location.getStandart().getTemp_min() ||
                     condition.getTemp() > location.getStandart().getTemp_max()) {
-
                 conditionStatuses.add(new ConditionStatus(condition, "Temperature out of range"));
             } else if (condition.getHum() > location.getStandart().getHum_max()) {
-
                 conditionStatuses.add(new ConditionStatus(condition, "Humidity out of range"));
-
             } else if (condition.getCo2() < location.getStandart().getCo2_min() ||
                     condition.getCo2() > location.getStandart().getCo2_max()) {
                 conditionStatuses.add(new ConditionStatus(condition, "CO2 out of range"));
@@ -174,9 +163,7 @@ public class ConditionController {
                 conditionStatuses.add(new ConditionStatus(condition, "CO2 has reached the upper limit"));
             } else
                 conditionStatuses.add(new ConditionStatus(condition, "Indicators are normal"));
-
         }
         return  conditionStatuses;
     }
-
 }

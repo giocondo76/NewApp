@@ -13,9 +13,9 @@ import java.util.Set;
 public class User implements UserDetails {
 
     @Id
-    @SequenceGenerator(name = "user_id_sequence_gen",
+    @SequenceGenerator(name = "user_id_sequence",
             sequenceName="user_id_sequence", initialValue = 2)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id_sequence_gen")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id_sequence")
     private Integer id;
     @Column(name="name")
     private String username;
@@ -45,8 +45,6 @@ public class User implements UserDetails {
     @OneToMany(fetch = FetchType.LAZY,
             mappedBy = "user")
     private List<UserVote> userVotes;
-
-
 
     public User() {
     }

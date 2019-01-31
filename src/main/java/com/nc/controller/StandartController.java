@@ -41,14 +41,11 @@ public class StandartController {
     @Autowired
     private UserVoteService userVoteService;
 
-
     @Autowired
     private StandartService standartService;
 
     @GetMapping("/standart/{id}/edit")
     public String changeStandartOfLocation(@PathVariable Integer id, Map<String, Object> model) {
-
-
         Location location = locationRepository.findOne(id);
         LocationFlag locationFlag = createNewFlag(location);
         model.put("locationFlag", locationFlag);
@@ -56,7 +53,6 @@ public class StandartController {
         return "standart/edit";
     }
 
-    //
     @PostMapping("/standart/{id}/edit")
     public String editStandartOfLocation(@PathVariable Integer id, @Valid Change change, BindingResult result) {
         if (result.hasErrors()) {
@@ -90,15 +86,14 @@ public class StandartController {
     }
 
     @GetMapping("/standart/add")
-    public String add(Map<String, Object> model) {
+    public String addStandart(Map<String, Object> model) {
 
         model.put("standart", new Standart());
         return "standart/add";
     }
 
-
     @PostMapping("/standart/add")
-    public String add(@Valid Standart standart, BindingResult result) {
+    public String addStandart(@Valid Standart standart, BindingResult result) {
         if (result.hasErrors()) {
             return "standart/add";
         }
@@ -106,7 +101,6 @@ public class StandartController {
 
         return "redirect:/standart/all";
     }
-
 
     public LocationFlag createNewFlag(Location location){
         List<String> flags = new ArrayList<>();
@@ -121,7 +115,6 @@ public class StandartController {
         }
         return  locationFlag;
     }
-
 
     public void saveOrDeleteStandartAfterThreeHours(Change change, Location location) {
         TimerTask task = new TimerTask() {

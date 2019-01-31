@@ -1,8 +1,7 @@
 package com.nc.service;
 
-import com.nc.controller.response.EmailExistsException;
-import com.nc.controller.response.UsernameExistsException;
-import com.nc.entity.Location;
+import com.nc.exception.EmailExistsException;
+import com.nc.exception.UsernameExistsException;
 import com.nc.entity.Role;
 import com.nc.entity.User;
 import com.nc.repository.RoleRepository;
@@ -15,13 +14,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Objects;
-import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -96,7 +93,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean hasRole(String role) {
+    public boolean hasRole(String role){
         Collection<GrantedAuthority> authorities = (Collection<GrantedAuthority>)
                 SecurityContextHolder.getContext().getAuthentication().getAuthorities();
 
@@ -111,7 +108,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateProfile(User user,UserDto userDto) {
+    public void updateProfile(User user,UserDto userDto){
         String userEmail = user.getEmail();
 
         boolean isEmailChanged = (userDto.getEmail() != null && !userDto.getEmail().equals(userEmail)) ||
@@ -128,8 +125,5 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setLocation(userDto.getLocation());
         userRepository.save(user);
-
     }
-
-
 }

@@ -23,7 +23,6 @@ public class DevType {
     public DevType() {
     }
 
-
     public DevType(Integer id, String name, List<Device> devices) {
         this.id = id;
         this.name = name;

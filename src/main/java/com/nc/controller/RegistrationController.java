@@ -1,7 +1,7 @@
 package com.nc.controller;
 
-import com.nc.controller.response.EmailExistsException;
-import com.nc.controller.response.UsernameExistsException;
+import com.nc.exception.EmailExistsException;
+import com.nc.exception.UsernameExistsException;
 import com.nc.valid.UserDto;
 import com.nc.entity.User;
 import com.nc.service.UserService;
@@ -49,10 +49,10 @@ public class RegistrationController {
     @GetMapping("/login")
     public String login(Model model, String error, String logout) {
         if (error != null)
-            model.addAttribute("error", "Your username and password is invalid.");
+            model.addAttribute("error", "Your username or password is invalid.");
 
         if (logout != null)
-            model.addAttribute("message", "You have been logged out successfully.");
+            model.addAttribute("message", "You have been logged out.");
 
         return "login";
     }

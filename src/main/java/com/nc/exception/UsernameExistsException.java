@@ -1,4 +1,4 @@
-package com.nc.controller.response;
+package com.nc.exception;
 
 public class UsernameExistsException extends Exception {
     public UsernameExistsException(String message)

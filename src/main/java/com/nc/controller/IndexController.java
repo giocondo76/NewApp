@@ -32,13 +32,11 @@ public class IndexController {
     @GetMapping(value={"/","/index"})
     public String index(Map<String, Object> model){
 
-
         List<Location> locations = locationRepository.findAll();
         List<LocationFlag> locationFlags = createListOfLocationFlags(locations);
         model.put("locations", locations);
         model.put("locationFlags",locationFlags);
         return "index";
-
     }
 
     public List<LocationFlag> createListOfLocationFlags(List<Location> locations){
@@ -56,7 +54,4 @@ public class IndexController {
         }
         return locationFlags;
     }
-
-
-
 }

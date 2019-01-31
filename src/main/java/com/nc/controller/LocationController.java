@@ -42,8 +42,12 @@ public class LocationController {
      @Autowired
      private UserVoteRepository userVoteRepository;
 
+     @Autowired
+     private UserRepository userRepository;
+
+
     @GetMapping("/location/add")
-    public String add(ModelMap model) {
+    public String addLocation(ModelMap model) {
 
         model.addAttribute("location", new Location());
         model.addAttribute("locTypes", locTypeRepository.findAll());
@@ -52,15 +56,14 @@ public class LocationController {
     }
 
     @PostMapping("/location/add")
-    public String add(@Valid Location location, BindingResult result, ModelMap model) {
+    public String addLocation(@Valid Location location, BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
             model.addAttribute("locTypes", locTypeRepository.findAll());
             model.addAttribute("standarts", standartRepository.findAll());
             return "location/add";
         }
-        location.setUser(userService.getCurrentUser());
         User user = userService.getCurrentUser();
-        user.setLocation(location);
+        location.setUser(userService.getCurrentUser());
         if(userVoteRepository.findByUserId(user.getId()) != null)
         {
             userVoteRepository.delete(userVoteRepository.findByUserId(user.getId()));

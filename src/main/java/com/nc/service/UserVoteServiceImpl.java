@@ -31,7 +31,6 @@ public class UserVoteServiceImpl implements UserVoteService {
             if (userVote.getVote()){
                 countVotesYes++;
             }
-
         }
         return (countVotesYes*100)/countAllVotes;
     }

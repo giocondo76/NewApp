@@ -7,9 +7,9 @@ import javax.persistence.*;
 public class Device {
 
     @Id
-    @SequenceGenerator(name = "device_id_sequence_gen",
+    @SequenceGenerator(name = "device_id_sequence",
             sequenceName="device_id_sequence", initialValue = 10)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "device_id_sequence_gen")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "device_id_sequence")
     @Column(name = "dev_id")
     private Integer id;
 

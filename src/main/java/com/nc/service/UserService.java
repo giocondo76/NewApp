@@ -1,9 +1,8 @@
 package com.nc.service;
 
 
-import com.nc.controller.response.EmailExistsException;
-import com.nc.controller.response.UsernameExistsException;
-import com.nc.entity.Location;
+import com.nc.exception.EmailExistsException;
+import com.nc.exception.UsernameExistsException;
 import com.nc.entity.User;
 import com.nc.valid.UserDto;
 import org.springframework.security.core.userdetails.UserDetailsService;

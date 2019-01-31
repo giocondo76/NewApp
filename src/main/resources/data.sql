@@ -31,7 +31,15 @@ INSERT INTO location(
 	loc_id, name, type, standart, room_manager)
 	VALUES (1, 'secret room', 3, 2, 1),
 		(2, 'dinner room', 1, 2 , 1),
-		(3, 'work space', 2, 2 , 1);
+		(3, 'work space', 2, 2 , 1),
+		(4, 'room 83', 1, 2 , 1),
+        (5, 'сonference room', 2, 2 , 1),
+        (6, 'wardrobe', 3, 2 , 1),
+        (7, 'meeting room', 2, 2 , 1),
+        (8, 'water gun shooting room', 1, 2 , 1),
+        (9, 'server room', 3, 2 , 1),
+        (10, 'reception room', 1, 2 , 1);
+
 INSERT INTO device(
 	dev_id, name, type, location)
 	VALUES (1, 'device 1', 1, 1),
@@ -48,9 +56,9 @@ INSERT INTO condition(
 	cond_id, datetime, location, temp, hum, carb_diox)
 	VALUES  (1,'2014-04-04 20:00:00', 1, 25, 40, 800),
 	        (2,'2014-04-04 20:05:00', 1, 24, 41, 809),
-		(3,'2014-04-04 20:10:00', 1, 25, 43, 811),
-		(4,'2014-04-04 20:15:00', 1, 23, 47, 790),
-		(5,'2014-04-04 20:20:00', 1, 26, 51, 803),
+		    (3,'2014-04-04 20:10:00', 1, 25, 43, 811),
+		    (4,'2014-04-04 20:15:00', 1, 23, 47, 790),
+		    (5,'2014-04-04 20:20:00', 1, 26, 51, 803),
 		(6,'2014-04-04 20:00:00', 2, 25, 50, 740),
 		(7,'2014-04-04 20:05:00', 2, 23, 55, 740),
 		(8,'2014-04-04 20:10:00', 2, 27, 55, 740),

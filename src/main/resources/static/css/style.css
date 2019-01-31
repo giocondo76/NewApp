@@ -1,0 +1,24 @@
+body {
+    background-color: white;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 100px;
+}
+
+.form-sign {
+    max-width: 400px;
+    padding: 20px;
+    margin: 0 auto;
+}
+.form-sign .form-group {
+    margin-top: 20px;
+}
+.form-sign button {
+    margin-top: 20px;
+}
