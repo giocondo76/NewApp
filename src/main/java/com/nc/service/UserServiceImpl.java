@@ -111,22 +111,22 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateProfile(User user, String username, String email, Location location, String password) {
+    public void updateProfile(User user,UserDto userDto) {
         String userEmail = user.getEmail();
 
-        boolean isEmailChanged = (email != null && !email.equals(userEmail)) ||
-                (userEmail != null && !userEmail.equals(email));
+        boolean isEmailChanged = (userDto.getEmail() != null && !userDto.getEmail().equals(userEmail)) ||
+                (userEmail != null && !userEmail.equals(userDto.getEmail()));
 
         if (isEmailChanged) {
-            user.setEmail(email);
+            user.setEmail(userDto.getEmail());
         }
 
-        if (!StringUtils.isEmpty(username)) {
-            user.setUsername(username);
+        if (!StringUtils.isEmpty(userDto.getUsername())) {
+            user.setUsername(userDto.getUsername());
         }
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setLocation(location);
+        user.setLocation(userDto.getLocation());
         userRepository.save(user);
 
     }

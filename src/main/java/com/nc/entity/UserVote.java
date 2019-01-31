@@ -1,5 +1,7 @@
 package com.nc.entity;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,9 +17,9 @@ public class UserVote {
     @JoinColumn(name = "usr")
     private User user;
 
-    private boolean vote;
+    private Boolean vote;
 
-    public UserVote(Integer id, User user, boolean vote) {
+    public UserVote(Integer id, User user, Boolean vote) {
         this.id = id;
         this.user = user;
         this.vote = vote;
@@ -42,11 +44,11 @@ public class UserVote {
         this.user = user;
     }
 
-    public boolean isVote() {
+    public Boolean getVote() {
         return vote;
     }
 
-    public void setVote(boolean vote) {
+    public void setVote(Boolean vote) {
         this.vote = vote;
     }
 }

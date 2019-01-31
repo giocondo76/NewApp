@@ -14,8 +14,8 @@ INSERT INTO loc_type(
 
 INSERT INTO standart(
 	st_id, name, temp_min, temp_max, hum_max, carb_diox_min, carb_diox_max)
-	VALUES (1, 'warm', 18, 28, 65, 600, 1000),
-	(2, 'cold', 18, 26, 60, 600, 1000);
+	VALUES (1, 'warm', 18, 28, 65, 600, 800),
+	(2, 'cold', 18, 26, 60, 600, 800);
 
 INSERT INTO role (id, name , authority) VALUES
   (1, 'Users', 'ROLE_USER'),

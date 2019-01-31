@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:include="layout :: page">
+<body>
+<div th:fragment="content">
+            <div  class="page-header">
+                <h3 class="text-center">Add new standart</h3>
+            </div>
+            <form th:action="@{/standart/add}" method="post" class="form-sign" th:object="${standart}">
+                <input type="hidden" th:field="*{id}" />
+                <div class="form-group">
+                    <label class="control-label" for="name">Standart name</label>
+                    <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Standart name" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="temp_min">Temperature minimum</label>
+                    <input type="text" class="form-control" id="temp_min" th:field="*{temp_min}" placeholder="Temperature minimum" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="temp_max">Temperature maximum</label>
+                    <input type="text" class="form-control" th:field="*{temp_max}" id="temp_max" placeholder="Temperature maximum" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="hum_max">Humidity maximum</label>
+                    <input type="text" class="form-control" th:field="*{hum_max}" id="hum_max" placeholder="Humidity maximum" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="co2_min">CO2 minimum</label>
+                    <input type="text" class="form-control" th:field="*{co2_min}" id="co2_min" placeholder="CO2 minimum" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="co2_max">CO2 maximum</label>
+                    <input type="text" class="form-control" th:field="*{co2_max}" id="co2_max" placeholder="CO2 maximum" />
+                </div>
+
+                <button type="submit" class="btn btn-default">Add standart</button>
+            </form>
+        </div>
+</body>
+</html>

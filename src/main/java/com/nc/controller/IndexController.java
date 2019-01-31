@@ -32,67 +32,31 @@ public class IndexController {
     @GetMapping(value={"/","/index"})
     public String index(Map<String, Object> model){
 
-        List<LocationFlag> locationFlags = new ArrayList<>();
+
         List<Location> locations = locationRepository.findAll();
-        for(Location location:locations){
-            if(location.getUser().getId().equals(userService.getCurrentUser().getId())){
-                  locationFlags.add(new LocationFlag(location,"Admin"));
-            }
-            else
-                locationFlags.add(new LocationFlag(location,"User"));
-        }
+        List<LocationFlag> locationFlags = createListOfLocationFlags(locations);
         model.put("locations", locations);
         model.put("locationFlags",locationFlags);
         return "index";
 
     }
 
-//    @PostMapping(value={"/","/index"})
-//    public String searchLocationById(
-//            @Valid @RequestBody SearchCriteria search, Errors errors) {
-//
-//        AjaxResponseBody result = new AjaxResponseBody();
-//
-//        //If error, just return a 400 bad request, along with the error message
-//        if (errors.hasErrors()) {
-//
-//            result.setMsg(errors.getAllErrors()
-//                    .stream().map(x -> x.getDefaultMessage())
-//                    .collect(Collectors.joining(",")));
-//
-//            return ResponseEntity.badRequest().body(result);
-//
-//        }
-//
-//        List<User> users = userService.findByUserNameOrEmail(search.getUsername());
-//        if (users.isEmpty()) {
-//            result.setMsg("no user found!");
-//        } else {
-//            result.setMsg("success");
-//        }
-//        result.setResult(users);
-//
-//        return ResponseEntity.ok(result);
-//
-//    }
-//
-    @PostMapping(value={"/index"})
-    public String searchLocationById(@RequestParam Integer search, Map<String, Object> model) {
-        Iterable<Location> locations;
+    public List<LocationFlag> createListOfLocationFlags(List<Location> locations){
 
-        if (search != null) {
-            locations = Collections.singleton(locationRepository.findById(search));
-        } else {
-            locations = locationRepository.findAll();
-
+        List<String> flags = new ArrayList<>();
+        flags.add("Room manager");
+        flags.add("User");
+        List<LocationFlag> locationFlags = new ArrayList<>();
+        for(Location location:locations){
+            if(location.getUser().getId().equals(userService.getCurrentUser().getId())){
+                locationFlags.add(new LocationFlag(location,flags.get(0)));
+            }
+            else
+                locationFlags.add(new LocationFlag(location,flags.get(1)));
         }
-        model.put("locations", locations);
-        return "index";
+        return locationFlags;
     }
 
-//    @GetMapping(value={"/","/index"})
-//    public String showStudentBySurname(@RequestParam (value = "surname", required = false) String surname, Model model) {
-//        model.addAttribute("search", studentService.listStudentsBySurname(surname));
-//        return "students";
-//    }
+
+
 }

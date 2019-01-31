@@ -1,11 +1,10 @@
 package com.nc.controller;
 
 import com.nc.entity.*;
-import com.nc.repository.ConditionRepository;
-import com.nc.repository.LocationRepository;
-import com.nc.repository.StandartRepository;
-import com.nc.repository.SuggestionRepository;
+import com.nc.repository.*;
 import com.nc.service.UserService;
+import com.nc.service.UserVoteService;
+import com.nc.service.UserVoteServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -22,14 +21,10 @@ public class ConditionController {
     @Autowired
     private ConditionRepository conditionRepository;
 
-
     @Autowired
     private SuggestionRepository suggestionRepository;
 
     private Location location;
-
-//    @Autowired
-//    private ChangeRepository changeRepository;
 
    @Autowired
    private LocationRepository locationRepository;
@@ -40,18 +35,21 @@ public class ConditionController {
    @Autowired
    private StandartRepository standartRepository;
 
-    @RequestMapping(value = "/condition/{id}", method = RequestMethod.GET)
+   @Autowired
+   private ChangeRepository changeRepository;
+
+   @Autowired
+   private UserVoteRepository userVoteRepository;
+
+   @Autowired
+   private UserVoteService userVoteService;
+
+    @GetMapping("/condition/{id}")
     public String condition(Map<String, Object> model, @PathVariable Integer id) {
 
         Location location = locationRepository.findById(id);
         model.put("location", location);
-        LocationFlag locationFlag;
-        if(location.getUser().getId().equals(userService.getCurrentUser().getId())){
-             locationFlag = new LocationFlag(locationRepository.findById(id),"Admin");
-        }
-        else {
-            locationFlag = new LocationFlag(locationRepository.findById(id), "User");
-        }
+        LocationFlag locationFlag = createNewFlag(location);
         model.put("locationFlag",locationFlag);
 
         List<Condition> conditions = conditionRepository.findByLocationId(id);
@@ -64,43 +62,89 @@ public class ConditionController {
         User user = userService.getCurrentUser();
         model.put("user", user);
 
-        if(location.getChanges() != null){
-            model.put("change", location.getChanges());
+
+        Change change = changeRepository.findByLocationId(id);
+        model.put("change", change);
+
+        UserVote userVote = userVoteRepository.findByUserId(user.getId());
+
+        if(userVote == null){
+
+            model.put("userVote", new UserVote());
+
+
+        }else if(userVote.getVote() != null && user.getLocation().getId().equals(location.getId()))
+        {
+            model.put("userVote", userVote);
+            Integer result = userVoteService.showVotingResult(location);
+            model.put("votingResult", result);
         }
         return "condition";
     }
 
 
-    @PostMapping(value = "/condition/{id}")
-    public String addSuggestion(@Valid Suggestion suggestion, @PathVariable Integer id , Map<String, Object> model, BindingResult result) {
-
+    @PostMapping("/condition/{id}")
+    public String addSuggestionAndVote(@Valid Suggestion suggestion, @PathVariable Integer id , Map<String, Object> model,
+                                BindingResult result,@Valid UserVote userVote ) {
         if (result.hasErrors()) {
             return "condition/{id}";
         }
 
-//        Standart standart = location.getStandart();
-//        model.put("standart", standart);
         Location location = locationRepository.findById(id);
-        LocationFlag locationFlag;
-        if(location.getUser().getId().equals(userService.getCurrentUser().getId())){
-            locationFlag = new LocationFlag(locationRepository.findById(id),"Admin");
-        }
-        else {
-            locationFlag = new LocationFlag(locationRepository.findById(id), "User");
-        }
+        LocationFlag locationFlag = createNewFlag(location);
         model.put("locationFlag",locationFlag);
-        suggestion.setLocation(locationRepository.findById(id));
-        suggestionRepository.save(suggestion);
-        List<Suggestion> suggestions = suggestionRepository.findByLocationId(id);
+        model.put("location", location);
 
         List<Condition> conditions = conditionRepository.findByLocationId(id);
         List<ConditionStatus> conditionStatuses = getListOfConditionStatuses(conditions, location);
-
         model.put("conditionStatuses", conditionStatuses);
 
-        model.put("suggestion", new Suggestion());
+        if(suggestion.getText() != null)
+        {
+            suggestion.setLocation(locationRepository.findById(id));
+            suggestionRepository.save(suggestion);
+            model.put("suggestion", new Suggestion());
+        }
+
+        List<Suggestion> suggestions = suggestionRepository.findByLocationId(id);
         model.put("suggestions", suggestions);
+
+        User user = userService.getCurrentUser();
+        model.put("user", user);
+
+        Change change = changeRepository.findByLocationId(id);
+        model.put("change", change);
+
+
+        Integer votingResult;
+        if(userVote.getVote() != null){
+                userVote.setUser(user);
+                userVoteRepository.save(userVote);
+                votingResult = userVoteService.showVotingResult(location);
+                model.put("userVote", userVote);
+                model.put("votingResult", votingResult);
+            }
+        else
+        {
+            userVote = userVoteRepository.findByUserId(user.getId());
+            model.put("userVote",userVote);
+
+        }
         return "condition";
+    }
+
+    public LocationFlag createNewFlag(Location location){
+        List<String> flags = new ArrayList<>();
+        flags.add("Room manager");
+        flags.add("User");
+        LocationFlag locationFlag;
+        if(location.getUser().getId().equals(userService.getCurrentUser().getId())){
+            locationFlag = new LocationFlag(location,flags.get(0));
+        }
+        else {
+            locationFlag = new LocationFlag(location, flags.get(1));
+        }
+        return  locationFlag;
     }
 
     public List<ConditionStatus> getListOfConditionStatuses(List<Condition> conditions, Location location) {

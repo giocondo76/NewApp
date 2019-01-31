@@ -36,15 +36,14 @@ public class Change {
 
     @Column(name = "carb_diox_max")
     private Integer co2_max;
-    @Column(name = "datetime")
-    private Timestamp timestamp;
+
 
     @ManyToOne (fetch=FetchType.LAZY)
     @JoinColumn (name="location")
     private Location location;
 
     public Change(Integer id, String name, Integer temp_min, Integer temp_max, Integer hum_max,
-                  Integer co2_min, Integer co2_max, Timestamp timestamp, Location location) {
+                  Integer co2_min, Integer co2_max,Location location) {
         this.id = id;
         this.name = name;
         this.temp_min = temp_min;
@@ -52,7 +51,6 @@ public class Change {
         this.hum_max = hum_max;
         this.co2_min = co2_min;
         this.co2_max = co2_max;
-        this.timestamp = timestamp;
         this.location = location;
     }
 
@@ -65,15 +63,6 @@ public class Change {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-
-    public Timestamp getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Timestamp timestamp) {
-        this.timestamp = timestamp;
     }
 
     public Location getLocation() {

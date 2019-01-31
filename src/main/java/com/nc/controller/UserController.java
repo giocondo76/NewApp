@@ -3,6 +3,7 @@ package com.nc.controller;
 import com.nc.entity.Location;
 import com.nc.entity.User;
 import com.nc.repository.LocationRepository;
+import com.nc.repository.UserVoteRepository;
 import com.nc.service.UserService;
 import com.nc.valid.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class UserController {
     @Autowired
     private LocationRepository locationRepository;
 
+    @Autowired
+    private UserVoteRepository userVoteRepository;
+
     @GetMapping("/profile")
     public String getProfile(Map<String, Object> model) {
 
@@ -42,10 +46,10 @@ public class UserController {
 
     @GetMapping("/profile/edit")
     public String updateProfile(Map<String, Object> model) {
-        User user1 = userService.getCurrentUser();
+        User user = userService.getCurrentUser();
 
-        model.put("user", new UserDto());
-        model.put("user1", user1);
+        model.put("newUser", new UserDto());
+        model.put("user", user);
         model.put("locations", locationRepository.findAll());
         return "profile/edit";
     }
@@ -63,8 +67,12 @@ public class UserController {
         user.setUsername(userDto.getUsername());
         user.setEmail(userDto.getEmail());
         user.setPassword(userDto.getPassword());
+        if(userVoteRepository.findByUserId(user.getId()) != null)
+        {
+            userVoteRepository.delete(userVoteRepository.findByUserId(user.getId()));
+        }
 
-        userService.updateProfile(user, userDto.getUsername(),userDto.getEmail(),userDto.getLocation(),userDto.getPassword());
+        userService.updateProfile(user, userDto);
 
         return "redirect:/profile";
     }

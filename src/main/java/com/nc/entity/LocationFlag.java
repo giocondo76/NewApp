@@ -40,6 +40,7 @@ public class LocationFlag {
 
     public LocationFlag addLocationFlag(Location location, User user){
 
+
         LocationFlag locationFlag;
         if(location.getUser().getId().equals(userService.getCurrentUser().getId())){
             locationFlag = new LocationFlag(location,"Admin");

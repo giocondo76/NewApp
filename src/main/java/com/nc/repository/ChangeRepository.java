@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ChangeRepository extends JpaRepository<Change, Integer> {
 
+    Change findByLocationId(Integer id);
 }

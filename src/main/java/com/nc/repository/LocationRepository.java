@@ -13,10 +13,5 @@ import java.util.List;
 public interface LocationRepository  extends JpaRepository<Location, Integer> {
 
     Location findById(Integer id);
-//    List<Location> findByDeviceIsNull(@Param("loc_id") Integer id);
-//    @Query("select location from Location location join c.addresses a where (a.city = :cityName)")
-//    List<Customer> findByCity(@Param("cityName")String city);
-
-//    List<Location> findByDevices(Collection.singleton();
 
 }

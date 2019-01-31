@@ -4,6 +4,7 @@ package com.nc.controller;
 import com.nc.entity.Device;
 import com.nc.entity.Location;
 import com.nc.entity.User;
+import com.nc.entity.UserVote;
 import com.nc.repository.*;
 import com.nc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,8 @@ public class LocationController {
      @Autowired
     private UserService userService;
 
+     @Autowired
+     private UserVoteRepository userVoteRepository;
 
     @GetMapping("/location/add")
     public String add(ModelMap model) {
@@ -56,6 +59,13 @@ public class LocationController {
             return "location/add";
         }
         location.setUser(userService.getCurrentUser());
+        User user = userService.getCurrentUser();
+        user.setLocation(location);
+        if(userVoteRepository.findByUserId(user.getId()) != null)
+        {
+            userVoteRepository.delete(userVoteRepository.findByUserId(user.getId()));
+        }
+
         locationRepository.save(location);
 
         return "redirect:/index";

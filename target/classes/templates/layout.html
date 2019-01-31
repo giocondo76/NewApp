@@ -6,6 +6,7 @@
 <head>
     <title>Airtrack Application</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Refresh" content="300" />
 
     <link rel="stylesheet" type="text/css"
           href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -19,8 +20,9 @@
 
         <div id="navbar" class="collapse navbar-collapse">
             <ul sec:authorize="isAuthenticated()" class="nav navbar-nav">
-                <li><a href="/device/all">Devices</a></li>
                 <li><a href="/index">Locations</a></li>
+                <li><a href="/device/all">Devices</a></li>
+                <li><a href="/standart/all">Standarts</a></li>
                 <li><a href="/profile">Profile</a></li>
             </ul>
 
